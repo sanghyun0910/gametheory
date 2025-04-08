@@ -112,7 +112,7 @@ class GameTheoryApp:
         game = self.game_type.get()
 
         if game == "Prisoner's Dilemma":
-            payoff_matrix = [[(-1, -1), (-10, 0)], [(0, -10), (-7, -7)]]
+            payoff_matrix = [[(-1, -1), (-10, 0)], [(0, -10), (-5, -5)]]
         elif game == "Stag Hunt":
             payoff_matrix = [[(4, 4), (0, 3)], [(3, 0), (3, 3)]]
         elif game == "Chicken Game":
