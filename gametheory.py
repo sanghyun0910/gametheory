@@ -116,7 +116,7 @@ class GameTheoryApp:
         elif game == "Stag Hunt":
             payoff_matrix = [[(4, 4), (0, 3)], [(3, 0), (3, 3)]]
         elif game == "Chicken Game":
-            payoff_matrix = [[(-10, -10), (1, -1)], [(-1, 1), (1, 1)]]
+            payoff_matrix = [[(-10, -10), (5, -5)], [(-5, 5), (1, 1)]]
 
         result = payoff_matrix[p1][p2]
         self.scores[0] += result[0]
