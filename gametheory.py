@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import os
+import random
 
 class GameTheoryApp:
     def __init__(self, root):
@@ -112,13 +113,22 @@ class GameTheoryApp:
         game = self.game_type.get()
 
         if game == "Prisoner's Dilemma":
-            payoff_matrix = [[(-1, -1), (-10, 0)], [(0, -10), (-5, -5)]]
+            if p1 == 1 and p2 == 1:
+                penalty_p1 = random.randint(-10, -1)
+                penalty_p2 = random.randint(-10, -1)
+                while penalty_p1 == penalty_p2:
+                    penalty_p2 = random.randint(-10, -1)
+                result = (penalty_p1, penalty_p2)
+            else:
+                payoff_matrix = [[(-1, -1), (-10, 0)], [(0, -10), (-5, -5)]]
+                result = payoff_matrix[p1][p2]
         elif game == "Stag Hunt":
             payoff_matrix = [[(4, 4), (0, 3)], [(3, 0), (3, 3)]]
+            result = payoff_matrix[p1][p2]
         elif game == "Chicken Game":
             payoff_matrix = [[(-10, -10), (5, -5)], [(-5, 5), (1, 1)]]
+            result = payoff_matrix[p1][p2]
 
-        result = payoff_matrix[p1][p2]
         self.scores[0] += result[0]
         self.scores[1] += result[1]
 
@@ -179,3 +189,4 @@ if __name__ == '__main__':
     root = tk.Tk()
     app = GameTheoryApp(root)
     root.mainloop()
+
